@@ -1,5 +1,4 @@
 // Setup empty JS object to act as endpoint for all routes
-cityData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -20,7 +19,7 @@ app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static('website'));
-const port = 4000;
+
 
  //Require GeoNames
  const Geonames = require('geonames.js')
@@ -101,7 +100,7 @@ function getLocationForWeatherForecast(req, res){
     weatherSearch(url);
 }
 
-
+const port = 4000;
 const server = app.listen(port,listening);
 function listening(){
     
@@ -109,3 +108,10 @@ function listening(){
     console.log(`Running on localhost:${port}`);
 };
 
+// TO TEST JEST REMOVE COMMENTS BELLOW designates what port the app will listen to for incoming requests
+
+// app.get(`/test`, async (req, res) => {
+//   res.status(200).json({ message: 'pass!' })
+// })
+
+// module.exports = app
