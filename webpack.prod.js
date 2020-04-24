@@ -36,7 +36,7 @@ module.exports = {
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({filename: '[name].css'}),
-        new MomentLocalesPlugin()
-        //new WorkboxPlugin.GenerateSW()
+        new MomentLocalesPlugin(),
+        new WorkboxPlugin.GenerateSW()
     ]
 }
