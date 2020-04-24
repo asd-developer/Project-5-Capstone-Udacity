@@ -1,192 +1,223 @@
-body{
+body {
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0
 }
 
-#app{
+#app {
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #58465c;
+    grid-auto-rows: minmax(100px, auto, auto);
+    height: 130vh;
+    background: #215b8b;
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif
 }
 
-.holder{
-
+.holder.headline {
+    height: 20px
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+.entry {
+    background: rgba(59, 74, 107, 0.4)
 }
 
-#entryHolder{
-
+label {
+    display: block;
+    font-size: 27px
 }
 
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 20px;
-}
-
-input{
-    display:block;
-    margin: 0 auto;
+input {
+    display: block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    background: #ffffff;
+    color: #353535;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
     text-align: center;
+    border-radius: 40px
 }
 
-button{
+button {
     width: 400px;
     height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
+    background: #933bad;
+    color: #ffffff;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
-}
-h1{
-    font-size: 36px;
+    border-radius: 40px;
+    margin: 50px auto
+    
 }
 
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
+h1 {
+    font-size: 30px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+textarea {
+    background: #22b2da;
+    color: #ffffff;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    border-style: solid;
+    border-color: black;
+    outline-width: 5px;
+    
 }
-/* Reset style for HTML element on active to have no border*/
+
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    text-align: center;
-    color: #ffffff; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    text-align: center;
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    text-align: center;
-    color: #ffffff; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-
-div.holder.zip{
-    width: 100vw;
-    height: 5px;
-    margin: 0 auto;
+    outline: none
 }
 
-.valid{
-    background-color: green;
-}
-.error{
-    background-color: red;
+::placeholder {
+    color: #202020;
+    font-family: 'Oswald', sans-serif
 }
 
-.invalidzipwarning{
+:-ms-input-placeholder {
+    color: #353535;
+    font-family: 'Oswald', sans-serif
+}
+
+::-ms-input-placeholder {
+    color: #383838;
+    font-family: 'Oswald', sans-serif
+}
+
+.holder.zip {
+    margin: 0 auto
+}
+
+.valid {
+    background-color: green
+}
+
+.error {
+    background-color: red
+}
+
+.invalidzipwarning {
     margin-top: 30px;
     color: red;
-    display: block;
+    display: block
 }
 
-.hide{
-    display: none;
+.hide {
+    display: none
 }
 
-.wrongfieldinput{
-    background-color: red;
+.wrongfieldinput {
+    background-color: red
 }
 
-.rightfieldinput{
-    background-color: green;
+.rightfieldinput {
+    background-color: green
 }
 
-.holder.feel{
-    margin: 0 auto;
-}
-
-.yourweather{
-    margin: 0 auto;
-    text-align: center;
-}
-
-#generatebuttonholder{
-    margin: 0 auto;
-}
-#generate{
-    margin: 0 auto;
-    height: 60px;
-}
-
-#generate:hover{
-    background-color: salmon;
-}
-
-#app{
-    min-height: 1200px;
+.yourweather {
+    margin: 0 auto
 }
 
 #placename{
-    width: 80vh;
-    height: 5vh;
-}
-
-#callendar{
     text-align: center;
     margin: 0 auto;
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+    outline-width: 5px;
+}
 
-}
-.holder.entry{
-    margin: 0 auto;
+#calendar{
     text-align: center;
+    margin: 0 auto;
 }
-/* .yourweatherdivinvisible{
-    display: none;
-} */
+
+#date_input{
+    text-align: center;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+    outline-width: 5px;
+}
+
+#tripend{
+    text-align: center;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+    outline-width: 5px;
+}
+#generatebuttonholder{
+    text-align: center;
+    margin: 0 auto;
+}
+#placenamelabel{
+    text-align: center;
+    margin: 20px auto;
+    
+}
+#inputplacename{
+    text-align: center;
+    margin: 0px auto;   
+}
+
+#piximage{
+    text-align: center;
+    margin: 0 auto;
+    max-height: 300px;
+}
+
+#img{
+    text-align: center;
+    margin: 0 auto;
+    max-height: 300px;
+}
+
+#placeinfotitle{
+    text-align: center;
+    margin: 0 auto;
+}
+#entryholder{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.answer{
+    text-align: center;
+    margin: 0 auto;
+}
+
+#entryholder{
+    text-align: center;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+    outline-width: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #app {
+        height: 180vh;
+    }
+    #piximage{
+        text-align: center;
+        margin: 0 auto;
+        max-height: 200px;
+    }
+    
+    #img{
+        text-align: center;
+        margin: 0 auto;
+        max-height: 300px;
+    }
+  }

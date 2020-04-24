@@ -38,7 +38,6 @@ function searchString(req, res){
 
         // console.log('geonamesearch test');
         const searchResultResponse = await fetch(endpoint);
-        
         try{
         const searchResults = await searchResultResponse.json();
         // console.log(searchResults.geonames[0].lat);
@@ -67,6 +66,7 @@ function pixImg(req, res){
         // console.log('url',url);
         // console.log('imglinks', imgLinks);
         // console.log('imageurl', imgLinks.hits[0].imageUrl);
+        console.log(imgLinks);
         res.send(imgLinks);
         }
         catch(error){
