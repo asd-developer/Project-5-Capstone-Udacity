@@ -7,14 +7,14 @@ moment().format();
 
 function calculateTimeTo(){
     
-    var now = moment(new Date()); //todays date
-    var end = moment(document.querySelector('#date_input').value); // another date
-    var duration = moment.duration(now.diff(end));
-    var days = duration.asDays();
+    const now = moment(new Date()); //todays date
+    const end = moment(document.querySelector('#date_input').value); // another date
+    const duration = moment.duration(now.diff(end));
+    const days = duration.asDays();
     document.querySelector('#tripend').value = Math.round(Math.abs(days));
 
-    // var tripStartDate = moment(document.querySelector('#date_input').value).format('DD-MM-YYYY');
-    // var today = moment().format('DD-MMM-YYYY');
+    // const tripStartDate = moment(document.querySelector('#date_input').value).format('DD-MM-YYYY');
+    // const today = moment().format('DD-MMM-YYYY');
     // console.log('interval', moment.duration(tripStartDate.diff(today)));
 
     // console.log('tripstartdate', tripStartDate.newDate());
@@ -29,7 +29,7 @@ async function getCityInfo() {
     let placeName = document.querySelector('#placename').value;
     cleanUI();
     if(placeName !== ''){
-        let searchPlaceResult = await searchPlace(`/search?searchQuery=${placeName}`);
+        let searchPlaceResult = await searchPlace(`/search?searchquery=${placeName}`);
         sendWeatherInformation(searchPlaceResult);
         updatePlaceUI(searchPlaceResult);
         return true;
@@ -40,21 +40,22 @@ async function getCityInfo() {
     }
 };
 
-async function GetServerWeatherData(lat, lng){
+function checkForError(response)  {
+    if (response.status >= 200 && response.status <= 299) {
+        return response
+    } else {
+        throw Error(response.statusText)
+    }
+}
 
- const getWeatherData = async(url = '')=>{
+async function getServerWeatherData(latitude, longitude){
 
     try{
-        const weatherDataResult = await fetch(url);
-        const weatherData = await weatherDataResult.json();
-        document.querySelector('#weatherforecast').innerHTML = `The temperature will be ${weatherData.data[0].temp}C`;
-        return weatherDataResult;
+        return await fetch(`/weatherdate?lat=${lat}&lon=${lng}`).then(checkForError).then(response => {return response.json()})
     }
     catch(error){
         console.log(error);
    }
-};
-    getWeatherData(`/weatherdate?lat=${lat}&lon=${lng}`);
 }
 
 const searchPlace = async(url = '')=>{
@@ -72,7 +73,7 @@ async function sendWeatherInformation(placeinfo){
 
     const lat = placeinfo.geonames[0].lat;
     const long =  placeinfo.geonames[0].lng;
-    const weatherData = await GetServerWeatherData(lat, long);
+    const weatherData = await getServerWeatherData(lat, lng);
 }
 
 

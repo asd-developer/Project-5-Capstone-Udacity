@@ -31,7 +31,7 @@ app.use(express.static('website'));
 app.get('/search', searchString);
 function searchString(req, res){
 
-    let url = `http://api.geonames.org/searchJSON?q=${req.query.searchQuery}&maxRows=1&username=jukexx`;
+    let url = `http://api.geonames.org/searchJSON?q=${req.query.searchquery}&maxRows=1&username=jukexx`;
   
     const geonamesSearch = async (endpoint) => {
 
