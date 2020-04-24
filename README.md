@@ -1,3 +1,7 @@
+# Project Submission for the udacity front-end Nanodegree
+
+To use this repository just clone it or download it as zip and run npm install on the terminal.
+
 # Weather-Journal App Project
 
 ## Overview
