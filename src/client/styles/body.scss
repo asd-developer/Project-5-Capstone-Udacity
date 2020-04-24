@@ -1,0 +1,192 @@
+body{
+    background: #fffff8;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#app{
+    display: grid;
+    grid-auto-rows: minmax(150px, auto);
+    /* grid-template-columns:  */
+    height:100vh;
+    background: #58465c;
+    color: #f0d43a;
+    justify-content: center;
+    grid-gap: 1em;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.holder{
+
+}
+
+.entry{
+    background: rgba(59, 74, 107, .4);
+}
+
+#entryHolder{
+
+}
+
+#date{
+
+}
+
+#temp{
+
+}
+
+#content{
+
+}
+
+.headline {
+
+}
+.title{
+
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+input{
+    display:block;
+    margin: 0 auto;
+    height: 60px;
+    width: 320px;
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    text-align: center;
+}
+
+button{
+    width: 400px;
+    height: 100px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+}
+h1{
+    font-size: 36px;
+}
+
+textarea{
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    text-align: center;
+    color: #ffffff; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    text-align: center;
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    text-align: center;
+    color: #ffffff; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+
+div.holder.zip{
+    width: 100vw;
+    height: 5px;
+    margin: 0 auto;
+}
+
+.valid{
+    background-color: green;
+}
+.error{
+    background-color: red;
+}
+
+.invalidzipwarning{
+    margin-top: 30px;
+    color: red;
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.wrongfieldinput{
+    background-color: red;
+}
+
+.rightfieldinput{
+    background-color: green;
+}
+
+.holder.feel{
+    margin: 0 auto;
+}
+
+.yourweather{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#generatebuttonholder{
+    margin: 0 auto;
+}
+#generate{
+    margin: 0 auto;
+    height: 60px;
+}
+
+#generate:hover{
+    background-color: salmon;
+}
+
+#app{
+    min-height: 1200px;
+}
+
+#placename{
+    width: 80vh;
+    height: 5vh;
+}
+
+#callendar{
+    text-align: center;
+    margin: 0 auto;
+
+}
+.holder.entry{
+    margin: 0 auto;
+    text-align: center;
+}
+/* .yourweatherdivinvisible{
+    display: none;
+} */

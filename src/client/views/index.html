@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weather Journal</title>
+</head>
+ <body>
+<div id = "app">
+  <div class ="holder headline">
+    Weather Journal App
+    <div class="yourweather">
+      <h2 id='datetoday'></h2>
+      <h2 id="cityweather"></h1>
+      <h2 id="currentweather"></h1>
+    </div>
+  </div>
+  <div class ="holder zip">
+    <label for="zip" id="placenamelabel">Enter the place you wanna travel to!</label>
+    <input type="text" id="placename" placeholder="Where do you wanna travel to ?">
+  </div>
+  <div id='callendar'>
+    <h1>Please input your travel starting Date</h1>
+  <input type="date" class="input" id="date_input" name="trip-start" value="" min="2020-04-24" max="2020-04-31" required />
+    <h1>Please input travel ending date.</h1>
+    <input type="date" id="tomorrowdate" />
+  </div>
+  <div class ="holder feel">
+    <!-- <label for="feelings">How are you feeling today?</label>
+    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea> -->
+  </div>
+  <div id="generatebuttonholder">    
+    <button id="generate" type = "submit" > Generate </button>
+    </div>
+    <div id="img">
+    <img src='' id="piximage">
+    </div>
+  <div class ="holder entry">
+    <div class = "title">Information about the place you choosed.</div>
+   <div id = "entryholder">
+    <h1 id = "placenameprint"></h1>
+    <h1 id = "placelatprint"></h1> 
+    <h1 id = "placelonprint"></h1>
+    <h1 id = "countrynameprint"></h1>
+  </div>
+  <div id="weatherinfodiv">
+    <h1 id='weatherforecast'></h1>
+  </div>
+  </div>
+  </div>
+
+</body>
+</html>

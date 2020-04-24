@@ -14,7 +14,8 @@ module.exports = {
         library: 'Client'
     },
     optimization: {
-        minimizer: [new TerserPlugin({}),new OptimizeCSSAssetsPlugin({})],
+        minimize: false
+        // minimizer: [new TerserPlugin({}),new OptimizeCSSAssetsPlugin({})],
     },
     module: {
         rules: [

@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+cityData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -21,75 +21,88 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 const port = 4000;
-const apiKey = '57dab2d04f62a1543169c35a20f27a8d';
+
+ //Require GeoNames
+ const Geonames = require('geonames.js')
+ var Promise = require('es6-promise').Promise;
  
-// Setup Server
-app.get('/all', getWeatherForPostCode);
-function getWeatherForPostCode (req, res) {
+//Server method to expose the geonames api
 
-    let countryCode = 'us';
-    let endpoint = `https://api.openweathermap.org/data/2.5/weather?zip=${req.query.zipCode},${countryCode}&appid=${apiKey}&units=metric`;
 
-    const retrieveData = async (endpoint) =>{
+app.get('/search', searchString);
+function searchString(req, res){
 
-        const request = await fetch(endpoint);
-        try {
-            // Transform into JSON
-            const response = await request.json();
+    let url = `http://api.geonames.org/searchJSON?q=${req.query.searchQuery}&maxRows=1&username=jukexx`;
+  
+    const geonamesSearch = async (endpoint) => {
 
-            if(request.status !== 400){
-            res.status(200).send(response);
-            }
-            else{
-                res.status(400).send(response);
-            }
-        }
-        catch(error) {
-            console.log("error", error);
-            // appropriately handle the error
-        }       
-    };        
-        retrieveData(endpoint);
-};
-
-//I know this wasn't requested but I wanted to take a step forward and validate the zipcode with another API.
-app.get('/checkzipcode', checkZipCode);
-function checkZipCode (req, res) {
-
-    let endpoint = `https://api.bring.com/pickuppoint/api/postalCode/us/getCityAndType/${req.query.zipCode}.json`;
+        // console.log('geonamesearch test');
+        const searchResultResponse = await fetch(endpoint);
         
-    const retrieveData = async (endpoint) =>{ 
-        const request = await fetch(endpoint);
-        const allData = await request.json();
-        if(request.status !== 200){
-            res.status(400).send(allData);
+        try{
+        const searchResults = await searchResultResponse.json();
+        // console.log(searchResults.geonames[0].lat);
+        // console.log(searchResults.geonames[0].lng);
+        // console.log(searchResults.geonames[0].countryName);
+        res.send(searchResults);
         }
-        else{
-            res.status(200).send(allData);
+        catch(error){
+            console.log('error: '+ error);
         }
-    };  
-        retrieveData(endpoint);
-};
+    }
 
-let feelingData = [];
-
-app.post('/postrecentfeeling', postRecentFeeling);
-function postRecentFeeling(req, res){
-
-    feelingData = [];
-    feelingData.push(req.body);
-    res.status(200);
+    geonamesSearch(url);
 }
 
+app.get('/locationimg', pixImg);
+function pixImg(req, res){
 
-app.get('/getfeelings', getfeelings)
-function getfeelings(req, res){
+    let url = `https://pixabay.com/api/?key=16196342-e582949eba041d8436f8f71f1&q=${req.query.countryname}`;
+  
+    const getImgFromPix = async (endpoint) => {
 
-    res.status(200).send(feelingData);
+        const searchResultResponse = await fetch(endpoint);
+        try{
+        const imgLinks = await searchResultResponse.json();
+        // console.log('url',url);
+        // console.log('imglinks', imgLinks);
+        // console.log('imageurl', imgLinks.hits[0].imageUrl);
+        res.send(imgLinks);
+        }
+        catch(error){
+            console.log('error: '+ error);
+        }
+    }
+
+    getImgFromPix(url);
 }
+
+app.get('/weatherdate', getLocationForWeatherForecast);
+function getLocationForWeatherForecast(req, res){
+
+    let url = `http://api.weatherbit.io/v2.0/current?&lat=${req.query.lat}&lon=${req.query.lon}&key=48fbcce4b8304227840c6ea7431129bd`;
+  
+    const weatherSearch = async (endpoint) => {
+
+        console.log('start ansync', endpoint);
+        const searchResultResponse = await fetch(endpoint);
+
+        try{
+            const weatherResults = await searchResultResponse.json();
+            console.log('xxxx: ', weatherResults.data);
+            res.send(weatherResults);
+        }
+        catch(error){
+            res.status(400).send();
+            console.log('error: '+ error);
+        }
+    }
+
+    weatherSearch(url);
+}
+
 
 const server = app.listen(port,listening);
-
 function listening(){
     
     console.log('Server running');
