@@ -10,22 +10,4 @@ it('tests the guest greeting', async done =>{
     console.log(response.body);
     expect(response.body).toStrictEqual(JSON.parse(expectedResponse))
     done()
-
-
 })
-
-// it('tests the captain greeting', async done =>{
-//     const response = await request.get('/getwelcomings').query({name : 'Picard'})
-    
-//     expect(response.body.message).toMatch('Hello Captain!')
-//     done()
-
-
-// })
-
-// test('should return value', () => {
-//     const func = async function searchString(data) {
-//         const nameResponse = generateText('adminuser3223');
-//         expect(nameSubmit).toBe('adminuser3223');
-//     }
-// });

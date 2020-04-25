@@ -89,6 +89,7 @@ function getLocationForWeatherForecast(req, res){
 
     weatherSearch(url);
 }
+
 //Initiates the server
 //#region  comment whats inside this region for Jest Testing
 const port = 4000;
@@ -98,6 +99,7 @@ function listening(){
     console.log('Server running');
     console.log(`Running on localhost:${port}`);
 };
+module.exports = server
 
 //#endregion
 
