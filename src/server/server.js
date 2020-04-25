@@ -75,12 +75,10 @@ function getLocationForWeatherForecast(req, res){
   
     const weatherSearch = async (endpoint) => {
 
-        console.log('start ansync', endpoint);
         const searchResultResponse = await fetch(endpoint);
 
         try{
             const weatherResults = await searchResultResponse.json();
-            console.log('xxxx: ', weatherResults.data);
             res.send(weatherResults);
         }
         catch(error){

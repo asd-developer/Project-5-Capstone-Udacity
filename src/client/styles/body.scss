@@ -58,8 +58,8 @@ button {
 }
 button:hover{
 background: #4d7dd6;
-
 }
+
 h1 {
     font-size: 30px;
     margin: 40px auto;
@@ -141,6 +141,10 @@ button:focus {
     outline-width: 5px;
 }
 
+#placename:hover{
+   background: rgb(150, 127, 255);
+}
+
 #calendar{
     text-align: center;
     margin: 0 auto;
@@ -153,6 +157,10 @@ button:focus {
     border-color: rgb(59, 59, 59);
     outline-width: 5px;
 }
+
+#date_input:hover{
+    background: rgb(150, 127, 255);
+ }
 
 #tripend{
     text-align: center;
