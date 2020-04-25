@@ -25,9 +25,8 @@ app.use(express.static('website'));
  const Geonames = require('geonames.js')
  var Promise = require('es6-promise').Promise;
  
-//Server method to expose the geonames api
 
-
+//Use Geonames API
 app.get('/search', searchString);
 function searchString(req, res){
 
@@ -35,13 +34,9 @@ function searchString(req, res){
   
     const geonamesSearch = async (endpoint) => {
 
-        // console.log('geonamesearch test');
         const searchResultResponse = await fetch(endpoint);
         try{
         const searchResults = await searchResultResponse.json();
-        // console.log(searchResults.geonames[0].lat);
-        // console.log(searchResults.geonames[0].lng);
-        // console.log(searchResults.geonames[0].countryName);
         res.send(searchResults);
         }
         catch(error){
@@ -52,6 +47,7 @@ function searchString(req, res){
     geonamesSearch(url);
 }
 
+//Use Pixabay API
 app.get('/locationimg', pixImg);
 function pixImg(req, res){
 
@@ -62,10 +58,6 @@ function pixImg(req, res){
         const searchResultResponse = await fetch(endpoint);
         try{
         const imgLinks = await searchResultResponse.json();
-        // console.log('url',url);
-        // console.log('imglinks', imgLinks);
-        // console.log('imageurl', imgLinks.hits[0].imageUrl);
-        console.log(imgLinks);
         res.send(imgLinks);
         }
         catch(error){
@@ -75,7 +67,7 @@ function pixImg(req, res){
 
     getImgFromPix(url);
 }
-
+// Get weather using weatherbut API
 app.get('/weatherdate', getLocationForWeatherForecast);
 function getLocationForWeatherForecast(req, res){
 
@@ -99,7 +91,8 @@ function getLocationForWeatherForecast(req, res){
 
     weatherSearch(url);
 }
-
+//Initiates the server
+//#region  comment whats inside this region for Jest Testing
 const port = 4000;
 const server = app.listen(port,listening);
 function listening(){
@@ -107,6 +100,8 @@ function listening(){
     console.log('Server running');
     console.log(`Running on localhost:${port}`);
 };
+
+//#endregion
 
 // TO TEST JEST REMOVE COMMENTS BELLOW designates what port the app will listen to for incoming requests
 

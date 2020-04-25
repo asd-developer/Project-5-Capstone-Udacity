@@ -1,4 +1,4 @@
-
+//gets IMG from API
 async function getPixImg(getCountryImage){
 
     const destinationImgObj = await pixImgData(`/locationimg?countryname=${getCountryImage.toLowerCase()}`);
@@ -22,5 +22,6 @@ const pixImgData = async(url = '')=>{
         console.log(error);
    }
 };
+//Exports ti getLocation.Js
 
 export { getPixImg }
