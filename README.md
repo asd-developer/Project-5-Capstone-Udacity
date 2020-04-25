@@ -1,3 +1,6 @@
+# Implementation Extend Options / Ways to Stand Out
+Due to lack of time i choosed to implement the image for countrys which images couldnt be found, I am planning on adding all of the others in the future but as of now in order to finish the course, this is the one i choosed.
+
 # Project Submission for the udacity front-end Nanodegree
 
 To use this repository just clone it or download it as zip and run npm install on the terminal.

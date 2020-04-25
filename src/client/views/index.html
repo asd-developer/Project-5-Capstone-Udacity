@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Weather Journal</title>
-</head>
- <body>
-<div id = "app">
-  <div class ="holder zip">
-  <div class="tripinformation">
-  <div id = "entryholder">
-    <p id="nopicturesavail"></p>
-    <img src='' id="piximage">
-    <h1 class = "title" id="placeinfotitle"></h1>
-    <h1 id = "placenameprint" class = "answer"></h1>
-    <h1 id = "placelatprint" class = "answer"></h1> 
-    <h1 id = "placelonprint" class = "answer"></h1>
-    <h1 id = "countrynameprint" class = "answer"></h1>
-    <h1 id = "weatherforecast" class = "answer"></h1>
-  </div>
-  <div id=inputplacename>
-    <label for="zip" id="placenamelabel">Enter the place you wanna travel to!</label>
-    <input type="text" id="placename" placeholder="Where do you wanna travel to ?">
-  </div>
-  <div id='callendar'>
-    <h1>Please input your travel starting Date</h1>
-    <input type="date" class="input" id="date_input" name="trip-start" value="" min="2020-04-24" max="2020-04-31" required />
-    <h1>Days until your trip starts.</h1>
-    <input type="text" id="tripend" readonly="true" />
-  </div>
-  <div class ="holder feel">
-    <!-- <label for="feelings">How are you feeling today?</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea> -->
-  </div>
-  <div id="generatebuttonholder">    
-    <button id="generate" type = "submit" > Generate </button>
-  </div>
-</div>
-<script>
-  //Check that service workers are supported
-  if ('serviceWorker' in navigator) {
-      // Use the window load event to keep the page load performant
-      window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-      });
-  }
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Weather Journal</title>
+  </head>
+  <body>
+    <div id = "app">
+      <div class ="holder zip">
+      <div class="tripinformation">
+      <div id = "entryholder">
+        <p id="nopicturesavail"></p>
+        <img src='' id="piximage">
+        <h1 class = "title" id="placeinfotitle"></h1>
+        <h1 id = "placenameprint" class = "answer"></h1>
+        <h1 id = "placelatprint" class = "answer"></h1> 
+        <h1 id = "placelonprint" class = "answer"></h1>
+        <h1 id = "countrynameprint" class = "answer"></h1>
+        <h1 id = "weatherforecast" class = "answer"></h1>
+      </div>
+      <div id=inputplacename>
+        <label for="zip" id="placenamelabel">Enter the place you wanna travel to!</label>
+        <input type="text" id="placename" placeholder="Where do you wanna travel to ?">
+      </div>
+      <div id='callendar'>
+        <h1>Please input your travel starting Date</h1>
+        <input type="date" class="input" id="date_input" name="trip-start" value="" min="2020-04-24" max="2020-04-31" required />
+        <h1>Days until your trip starts.</h1>
+        <input type="text" id="tripend" readonly="true" />
+      </div>
+      <div class ="holder feel">
+        <!-- <label for="feelings">How are you feeling today?</label>
+        <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea> -->
+      </div>
+      <div id="generatebuttonholder">    
+        <button id="generate" type = "submit" > Generate </button>
+      </div>
+    </div>
+    <script>
+      //Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+          window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/service-worker.js');
+          });
+      }
+    </script>
+  </body>
 </html>
